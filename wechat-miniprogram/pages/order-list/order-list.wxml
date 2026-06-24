@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="tabs">
+    <view class="tab {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-tab="0">全部</view>
+    <view class="tab {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-tab="1">待接单</view>
+    <view class="tab {{currentTab === 2 ? 'active' : ''}}" bindtap="switchTab" data-tab="2">进行中</view>
+    <view class="tab {{currentTab === 3 ? 'active' : ''}}" bindtap="switchTab" data-tab="3">已完成</view>
+  </view>
+
+  <view class="order-list">
+    <view class="order-card" wx:for="{{orders}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+      <view class="flex-between">
+        <text class="order-no">{{item.orderNo}}</text>
+        <text class="order-status">{{item.status}}</text>
+      </view>
+      <text class="order-amount">¥{{item.totalAmount}}</text>
+      <text class="order-address">{{item.address}}</text>
+    </view>
+  </view>
+</view>

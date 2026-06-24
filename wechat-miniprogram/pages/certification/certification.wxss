@@ -1,0 +1,11 @@
+.add-btn { background: #FF6B35; color: white; margin-bottom: 24rpx; border-radius: 12rpx; }
+.cert-card { background: white; padding: 24rpx; border-radius: 16rpx; margin-bottom: 16rpx; }
+.cert-header { display: flex; justify-content: space-between; margin-bottom: 8rpx; }
+.cert-skill { font-size: 30rpx; font-weight: bold; }
+.cert-status { font-size: 24rpx; }
+.cert-status.Approved { color: #4CAF50; }
+.cert-status.Pending { color: #999; }
+.cert-status.Rejected { color: #F44336; }
+.cert-name { font-size: 26rpx; color: #666; display: block; }
+.cert-no { font-size: 26rpx; color: #666; display: block; }
+.cert-reason { font-size: 24rpx; color: #F44336; display: block; margin-top: 8rpx; }

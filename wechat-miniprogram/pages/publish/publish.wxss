@@ -1,0 +1,5 @@
+.form-card { background: white; border-radius: 16rpx; padding: 24rpx; margin-bottom: 32rpx; }
+.form-item { padding: 16rpx 0; border-bottom: 1rpx solid #F0F0F0; }
+.label { font-size: 28rpx; display: block; margin-bottom: 12rpx; }
+.form-item input, .form-item textarea { font-size: 28rpx; width: 100%; }
+.form-item textarea { height: 150rpx; }

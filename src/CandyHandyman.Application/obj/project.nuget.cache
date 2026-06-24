@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lkD4qKbn6Mo=",
+  "success": true,
+  "projectFilePath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Application\\CandyHandyman.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Candy.CHINAMI-6LP8UH3\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,5 @@
+.provider-header { background: #FF6B35; padding: 48rpx 24rpx; text-align: center; }
+.title { color: white; font-size: 36rpx; font-weight: bold; }
+.menu-list { background: white; border-radius: 16rpx; margin-top: 24rpx; overflow: hidden; }
+.menu-item { padding: 28rpx 24rpx; border-bottom: 1rpx solid #F0F0F0; font-size: 30rpx; }
+.menu-item:last-child { border-bottom: none; }

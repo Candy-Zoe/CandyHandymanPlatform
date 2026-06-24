@@ -1,0 +1,9 @@
+.card { background: white; padding: 32rpx; border-radius: 16rpx; text-align: center; margin-top: 32rpx; }
+.success-icon { font-size: 80rpx; color: #4CAF50; display: block; }
+.success-text { font-size: 36rpx; font-weight: bold; color: #4CAF50; display: block; margin: 16rpx 0; }
+.info-row { font-size: 26rpx; color: #666; padding: 8rpx 0; text-align: left; }
+.section-title { font-size: 32rpx; font-weight: bold; margin-bottom: 16rpx; display: block; }
+.option-card { background: white; padding: 24rpx; border-radius: 16rpx; margin-bottom: 16rpx; display: flex; justify-content: space-between; align-items: center; }
+.option-name { font-size: 30rpx; font-weight: bold; }
+.option-coverage { font-size: 24rpx; color: #999; }
+.option-price { color: #FF6B35; font-size: 32rpx; font-weight: bold; }

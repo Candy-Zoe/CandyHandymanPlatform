@@ -1,0 +1,8 @@
+.payment-card { background: white; padding: 24rpx; border-radius: 16rpx; margin-bottom: 16rpx; display: flex; justify-content: space-between; }
+.payment-method { font-size: 28rpx; font-weight: bold; display: block; }
+.payment-txn { font-size: 22rpx; color: #999; display: block; }
+.payment-date { font-size: 22rpx; color: #999; }
+.amount { font-size: 32rpx; font-weight: bold; color: #FF6B35; display: block; text-align: right; }
+.payment-status { font-size: 22rpx; }
+.payment-status.Paid { color: #4CAF50; }
+.payment-status.Pending { color: #FF9800; }

@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="form-card">
+    <view class="form-item">
+      <text class="label">服务标题</text>
+      <input value="{{title}}" bindinput="onTitleInput" placeholder="如：专业水电维修"/>
+    </view>
+    <view class="form-item">
+      <text class="label">服务描述</text>
+      <textarea value="{{description}}" bindinput="onDescInput" placeholder="详细描述您的服务内容"/>
+    </view>
+    <view class="form-item">
+      <text class="label">价格</text>
+      <input type="digit" value="{{price}}" bindinput="onPriceInput" placeholder="请输入价格"/>
+    </view>
+    <view class="form-item">
+      <text class="label">单位</text>
+      <input value="{{unit}}" bindinput="onUnitInput" placeholder="小时/次/项"/>
+    </view>
+  </view>
+  <button class="btn-primary" bindtap="publish">发布服务</button>
+</view>

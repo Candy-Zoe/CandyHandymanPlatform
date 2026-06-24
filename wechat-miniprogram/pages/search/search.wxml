@@ -1,0 +1,9 @@
+<view class="container">
+  <search-bar placeholder="搜索服务..." bind:search="onSearch"/>
+  <view class="result-list">
+    <view class="result-item" wx:for="{{results}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+      <text class="result-title">{{item.title}}</text>
+      <text class="result-price">¥{{item.price}}/{{item.unit}}</text>
+    </view>
+  </view>
+</view>

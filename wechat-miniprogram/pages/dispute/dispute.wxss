@@ -1,0 +1,11 @@
+.dispute-card { background: white; padding: 24rpx; border-radius: 16rpx; margin-bottom: 16rpx; }
+.dispute-header { display: flex; justify-content: space-between; margin-bottom: 8rpx; }
+.dispute-reason { font-size: 30rpx; font-weight: bold; }
+.dispute-status { font-size: 24rpx; }
+.dispute-status.Open { color: #FF9800; }
+.dispute-status.UnderReview { color: #2196F3; }
+.dispute-status.Resolved { color: #4CAF50; }
+.dispute-status.Rejected { color: #F44336; }
+.dispute-desc { font-size: 26rpx; color: #666; display: block; }
+.dispute-resolution { font-size: 26rpx; color: #4CAF50; display: block; margin-top: 8rpx; }
+.empty { text-align: center; padding: 100rpx; color: #999; }

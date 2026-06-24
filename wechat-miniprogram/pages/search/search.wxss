@@ -1,0 +1,3 @@
+.result-item { background: white; padding: 24rpx; margin-bottom: 2rpx; display: flex; justify-content: space-between; }
+.result-title { font-size: 28rpx; }
+.result-price { color: #FF6B35; font-weight: bold; }

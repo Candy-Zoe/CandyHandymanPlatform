@@ -1,0 +1,34 @@
+<view class="container">
+  <view class="card" wx:if="{{hasInsurance}}">
+    <text class="success-icon">✓</text>
+    <text class="success-text">已购买保险</text>
+    <view class="info-row"><text>保单号: {{policyNo}}</text></view>
+    <view class="info-row"><text>保额: ¥{{coverageAmount}}</text></view>
+    <view class="info-row"><text>类型: {{insuranceType}}</text></view>
+  </view>
+
+  <view wx:else>
+    <text class="section-title">选择保险类型</text>
+    <view class="option-card" bindtap="purchase" data-type="PersonalInjury">
+      <view class="option-info">
+        <text class="option-name">人身意外险</text>
+        <text class="option-coverage">保额¥500</text>
+      </view>
+      <text class="option-price">¥5.00</text>
+    </view>
+    <view class="option-card" bindtap="purchase" data-type="PropertyDamage">
+      <view class="option-info">
+        <text class="option-name">财产损失险</text>
+        <text class="option-coverage">保额¥800</text>
+      </view>
+      <text class="option-price">¥8.00</text>
+    </view>
+    <view class="option-card" bindtap="purchase" data-type="Comprehensive">
+      <view class="option-info">
+        <text class="option-name">综合保障险</text>
+        <text class="option-coverage">保额¥1200</text>
+      </view>
+      <text class="option-price">¥12.00</text>
+    </view>
+  </view>
+</view>

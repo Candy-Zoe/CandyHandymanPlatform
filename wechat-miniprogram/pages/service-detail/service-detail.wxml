@@ -1,0 +1,34 @@
+<view class="container">
+  <view class="service-detail">
+    <swiper class="service-swiper" indicator-dots autoplay circular>
+      <swiper-item wx:for="{{service.media}}" wx:key="id">
+        <image src="{{item.mediaUrl}}" mode="aspectFill" class="swiper-image"/>
+      </swiper-item>
+    </swiper>
+
+    <view class="info-card">
+      <text class="service-title">{{service.title}}</text>
+      <text class="service-price">¥{{service.price}}/{{service.unit}}</text>
+    </view>
+
+    <view class="info-card" wx:if="{{service.handyman}}">
+      <view class="handyman-info flex-row">
+        <image class="handyman-avatar" src="{{service.handyman.avatar || '/images/default-avatar.png'}}"/>
+        <view class="handyman-detail">
+          <text class="handyman-name">{{service.handyman.nickname}}</text>
+          <text class="handyman-exp">{{service.handyman.yearsOfExperience}}年经验 ★ {{service.handyman.averageRating}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="info-card">
+      <text class="section-title">服务描述</text>
+      <text class="service-desc">{{service.description}}</text>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="btn-chat" bindtap="goChat">联系工匠</view>
+    <view class="btn-order" bindtap="goOrder">立即下单</view>
+  </view>
+</view>

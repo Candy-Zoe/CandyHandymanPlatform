@@ -1,0 +1,8 @@
+.form-card { background: white; border-radius: 16rpx; padding: 24rpx; margin-bottom: 24rpx; }
+.form-item { padding: 16rpx 0; border-bottom: 1rpx solid #F0F0F0; }
+.form-item:last-child { border-bottom: none; }
+.label { font-size: 28rpx; color: #333; display: block; margin-bottom: 12rpx; }
+.form-item input, .form-item textarea { font-size: 28rpx; width: 100%; }
+.form-item textarea { height: 120rpx; }
+.price-info { background: white; border-radius: 16rpx; padding: 24rpx; margin-bottom: 32rpx; font-size: 28rpx; display: flex; justify-content: space-between; }
+.total { color: #FF6B35; font-weight: bold; font-size: 32rpx; }

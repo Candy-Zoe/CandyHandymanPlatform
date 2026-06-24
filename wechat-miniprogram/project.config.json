@@ -1,0 +1,18 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "CandyHandymanMini",
+  "description": "万能工匠微信小程序",
+  "appid": "your-appid-here",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "autoAudits": false
+  },
+  "compileType": "miniprogram",
+  "condition": {}
+}

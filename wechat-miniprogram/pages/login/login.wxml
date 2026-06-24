@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="login-card">
+    <text class="title">万能工匠</text>
+    <text class="subtitle">登录后享受更多服务</text>
+
+    <view class="form-item">
+      <input value="{{phone}}" bindinput="onPhoneInput" placeholder="手机号" type="number"/>
+    </view>
+    <view class="form-item">
+      <input value="{{password}}" bindinput="onPasswordInput" placeholder="密码" password/>
+    </view>
+
+    <button class="btn-primary" bindtap="login">登录</button>
+  </view>
+</view>

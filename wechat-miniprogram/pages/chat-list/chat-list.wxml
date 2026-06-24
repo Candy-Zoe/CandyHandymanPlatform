@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="conv-list">
+    <view class="conv-item" wx:for="{{conversations}}" wx:key="id" bindtap="goChat" data-id="{{item.id}}">
+      <view class="conv-avatar-wrap">
+        <image class="conv-avatar" src="{{item.otherUser.avatar || '/images/default-avatar.png'}}"/>
+        <view class="unread-badge" wx:if="{{item.unreadCount > 0}}">{{item.unreadCount}}</view>
+      </view>
+      <view class="conv-info">
+        <text class="conv-name">{{item.otherUser.nickname || '未知用户'}}</text>
+        <text class="conv-last-msg">{{item.lastMessage.content || ''}}</text>
+      </view>
+    </view>
+  </view>
+</view>

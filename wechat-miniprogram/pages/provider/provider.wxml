@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="provider-header">
+    <text class="title">工匠中心</text>
+  </view>
+
+  <view class="menu-list">
+    <view class="menu-item" bindtap="goPublish">发布服务</view>
+    <view class="menu-item" bindtap="goMyServices">我的服务</view>
+    <view class="menu-item" bindtap="goMyOrders">我接的单</view>
+    <view class="menu-item" bindtap="goReviews">我的评价</view>
+  </view>
+</view>

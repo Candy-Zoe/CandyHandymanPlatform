@@ -1,0 +1,12 @@
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\bin\Debug\net9.0\CandyHandyman.Core.deps.json
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\bin\Debug\net9.0\CandyHandyman.Core.dll
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\bin\Debug\net9.0\CandyHandyman.Core.pdb
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\obj\Debug\net9.0\CandyHandyman.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\obj\Debug\net9.0\CandyHandyman.Core.AssemblyInfoInputs.cache
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\obj\Debug\net9.0\CandyHandyman.Core.AssemblyInfo.cs
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\obj\Debug\net9.0\CandyHandyman.Core.csproj.CoreCompileInputs.cache
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\obj\Debug\net9.0\CandyHandyman.Core.sourcelink.json
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\obj\Debug\net9.0\CandyHandyman.Core.dll
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\obj\Debug\net9.0\refint\CandyHandyman.Core.dll
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\obj\Debug\net9.0\CandyHandyman.Core.pdb
+E:\Test\web\GT2\CandyHandymanPlatform-\src\CandyHandyman.Core\obj\Debug\net9.0\ref\CandyHandyman.Core.dll

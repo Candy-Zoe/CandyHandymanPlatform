@@ -1,0 +1,15 @@
+<view class="container">
+  <button class="add-btn" bindtap="showAddDialog">+ 新增认证</button>
+
+  <view class="cert-list">
+    <view class="cert-card" wx:for="{{certifications}}" wx:key="id">
+      <view class="cert-header">
+        <text class="cert-skill">{{item.skillName}}</text>
+        <text class="cert-status {{item.status}}">{{item.statusText}}</text>
+      </view>
+      <text class="cert-name">证书: {{item.certificateName}}</text>
+      <text class="cert-no">编号: {{item.certificateNo}}</text>
+      <text class="cert-reason" wx:if="{{item.rejectReason}}">拒绝原因: {{item.rejectReason}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="info-card">
+    <text class="label">订单号</text>
+    <text class="value">{{order.orderNo}}</text>
+  </view>
+  <view class="info-card">
+    <text class="label">状态</text>
+    <text class="value text-primary">{{order.status}}</text>
+  </view>
+  <view class="info-card">
+    <text class="label">金额</text>
+    <text class="value text-primary text-bold">¥{{order.totalAmount}}</text>
+  </view>
+  <view class="info-card">
+    <text class="label">地址</text>
+    <text class="value">{{order.address}}</text>
+  </view>
+
+  <button wx:if="{{order.status === 'Pending'}}" class="btn-primary" bindtap="acceptOrder">接单</button>
+  <button wx:if="{{order.status === 'Accepted'}}" class="btn-primary" bindtap="startOrder">开始服务</button>
+  <button wx:if="{{order.status === 'InProgress'}}" class="btn-primary" bindtap="completeOrder">完成服务</button>
+</view>

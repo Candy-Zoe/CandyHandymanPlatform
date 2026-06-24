@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="form-card">
+    <view class="form-item">
+      <text class="label">数量</text>
+      <input type="number" value="{{quantity}}" bindinput="onQuantityInput" placeholder="请输入数量"/>
+    </view>
+    <view class="form-item">
+      <text class="label">服务地址</text>
+      <input value="{{address}}" bindinput="onAddressInput" placeholder="请输入详细地址"/>
+    </view>
+    <view class="form-item">
+      <text class="label">联系电话</text>
+      <input type="number" value="{{phone}}" bindinput="onPhoneInput" placeholder="请输入联系电话"/>
+    </view>
+    <view class="form-item">
+      <text class="label">备注说明</text>
+      <textarea value="{{description}}" bindinput="onDescInput" placeholder="请输入备注（选填）"/>
+    </view>
+  </view>
+
+  <view class="price-info">
+    <text>单价: ¥{{price}}/{{unit}}</text>
+    <text class="total">合计: ¥{{total}}</text>
+  </view>
+
+  <button class="btn-primary" bindtap="submitOrder">确认下单</button>
+</view>

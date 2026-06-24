@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="service-list">
+    <view class="service-card" wx:for="{{services}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+      <text class="service-title">{{item.title}}</text>
+      <text class="service-price">¥{{item.price}}/{{item.unit}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="card" wx:if="{{status === 'Approved'}}">
+    <text class="success-icon">✓</text>
+    <text class="success-text">认证已通过</text>
+    <text class="info-text">真实姓名: {{realName}}</text>
+  </view>
+
+  <view class="card" wx:elif="{{status === 'Pending'}}">
+    <text class="pending-icon">⏳</text>
+    <text class="pending-text">审核中</text>
+    <text class="info-text">您的实名认证正在审核中</text>
+  </view>
+
+  <view class="card" wx:else>
+    <text class="form-title">提交实名认证</text>
+    <input class="form-input" placeholder="真实姓名" bindinput="onNameInput"/>
+    <input class="form-input" placeholder="身份证号" bindinput="onIdCardInput"/>
+    <button class="upload-btn" bindtap="uploadFront">上传身份证正面</button>
+    <button class="upload-btn" bindtap="uploadBack">上传身份证反面</button>
+    <button class="btn-primary" bindtap="submit">提交认证</button>
+  </view>
+</view>

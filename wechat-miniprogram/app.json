@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/search/search",
+    "pages/category/category",
+    "pages/service-detail/service-detail",
+    "pages/order-create/order-create",
+    "pages/order-list/order-list",
+    "pages/order-detail/order-detail",
+    "pages/chat-list/chat-list",
+    "pages/chat/chat",
+    "pages/profile/profile",
+    "pages/provider/provider",
+    "pages/publish/publish",
+    "pages/login/login",
+    "pages/nearby/nearby",
+    "pages/verification/verification",
+    "pages/certification/certification",
+    "pages/insurance/insurance",
+    "pages/dispute/dispute",
+    "pages/payment/payment"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FF6B35",
+    "navigationBarTitleText": "万能工匠",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F5F5"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF6B35",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order-list/order-list",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/chat-list/chat-list",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

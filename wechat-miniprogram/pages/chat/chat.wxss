@@ -1,0 +1,9 @@
+.chat-container { height: 100vh; display: flex; flex-direction: column; }
+.message-list { flex: 1; padding: 16rpx; }
+.message-item { margin-bottom: 16rpx; max-width: 70%; }
+.message-item .msg-content { background: white; padding: 16rpx 20rpx; border-radius: 16rpx; font-size: 28rpx; display: inline-block; }
+.message-item.mine { margin-left: auto; }
+.message-item.mine .msg-content { background: #FF6B35; color: white; }
+.input-bar { display: flex; padding: 16rpx; background: white; border-top: 1rpx solid #F0F0F0; }
+.msg-input { flex: 1; height: 72rpx; background: #F5F5F5; border-radius: 36rpx; padding: 0 24rpx; font-size: 28rpx; }
+.send-btn { margin-left: 16rpx; background: #FF6B35; color: white; padding: 0 32rpx; height: 72rpx; line-height: 72rpx; border-radius: 36rpx; font-size: 28rpx; }

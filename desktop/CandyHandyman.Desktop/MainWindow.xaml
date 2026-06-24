@@ -1,0 +1,51 @@
+<Window x:Class="CandyHandyman.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="万能工匠 - 管理后台" Height="768" Width="1280"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F5F5">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="#FF6B35">
+            <StackPanel Margin="16">
+                <TextBlock Text="万能工匠" FontSize="22" FontWeight="Bold" Foreground="White" Margin="0,0,0,4"/>
+                <TextBlock Text="管理后台" FontSize="12" Foreground="#CCFFFFFF" Margin="0,0,0,24"/>
+
+                <Button Content="仪表盘" Tag="Dashboard" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="用户管理" Tag="Users" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="服务管理" Tag="Services" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="订单管理" Tag="Orders" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="分类管理" Tag="Categories" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="评价管理" Tag="Reviews" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Separator Background="#33FFFFFF" Margin="0,8"/>
+                <Button Content="实名认证" Tag="Verification" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="技能认证" Tag="Certifications" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="纠纷仲裁" Tag="Disputes" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="保险管理" Tag="Insurance" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+            </StackPanel>
+        </Border>
+
+        <ContentControl Grid.Column="1" x:Name="MainContent" Margin="16"/>
+    </Grid>
+
+    <Window.Resources>
+        <Style x:Key="NavButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="12,10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#33FFFFFF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+</Window>

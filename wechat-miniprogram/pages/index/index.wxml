@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="search-bar" bindtap="goSearch">
+    <icon type="search" size="16"/>
+    <text class="search-placeholder">搜索服务...</text>
+  </view>
+
+  <view class="category-grid">
+    <view class="category-item" wx:for="{{categories}}" wx:key="id" bindtap="goCategory" data-id="{{item.id}}">
+      <text class="category-icon">{{item.icon || '🔧'}}</text>
+      <text class="category-name">{{item.name}}</text>
+    </view>
+  </view>
+
+  <view class="section-title">推荐服务</view>
+
+  <view class="service-list">
+    <view class="service-card" wx:for="{{services}}" wx:key="id" bindtap="goServiceDetail" data-id="{{item.id}}">
+      <image class="service-image" src="{{item.media[0].mediaUrl || '/images/default.png'}}" mode="aspectFill"/>
+      <view class="service-info">
+        <text class="service-title">{{item.title}}</text>
+        <text class="service-desc">{{item.description}}</text>
+        <view class="service-bottom flex-between">
+          <text class="service-price">¥{{item.price}}/{{item.unit}}</text>
+          <text class="service-rating" wx:if="{{item.handyman}}">★ {{item.handyman.averageRating}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

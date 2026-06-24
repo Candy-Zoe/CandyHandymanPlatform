@@ -1,0 +1,5 @@
+.login-card { background: white; border-radius: 16rpx; padding: 48rpx 32rpx; margin-top: 100rpx; text-align: center; }
+.title { font-size: 40rpx; font-weight: bold; color: #FF6B35; display: block; margin-bottom: 12rpx; }
+.subtitle { font-size: 26rpx; color: #999; display: block; margin-bottom: 48rpx; }
+.form-item { border-bottom: 2rpx solid #F0F0F0; padding: 20rpx 0; margin-bottom: 20rpx; text-align: left; }
+.form-item input { font-size: 30rpx; }

@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="header">
+    <text class="title">附近工匠</text>
+  </view>
+
+  <view class="handyman-list">
+    <view class="handyman-card" wx:for="{{handymen}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+      <view class="handyman-info">
+        <view class="handyman-name-row">
+          <text class="handyman-name">{{item.nickname}}</text>
+          <text class="verified-badge" wx:if="{{item.isVerified}}">已认证</text>
+        </view>
+        <view class="rating-row">
+          <text class="rating">★ {{item.averageRating}}</text>
+          <text class="reviews">({{item.totalReviews}}条评价)</text>
+        </view>
+      </view>
+      <text class="distance">{{item.distanceText}}km</text>
+    </view>
+  </view>
+</view>

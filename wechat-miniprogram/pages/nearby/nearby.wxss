@@ -1,0 +1,9 @@
+.header { background: #FF6B35; padding: 32rpx; text-align: center; }
+.title { color: white; font-size: 36rpx; font-weight: bold; }
+.handyman-card { background: white; padding: 24rpx; margin-bottom: 16rpx; border-radius: 16rpx; display: flex; justify-content: space-between; align-items: center; }
+.handyman-name { font-size: 30rpx; font-weight: bold; }
+.verified-badge { background: #FF6B35; color: white; font-size: 20rpx; padding: 4rpx 12rpx; border-radius: 8rpx; margin-left: 12rpx; }
+.rating-row { margin-top: 8rpx; }
+.rating { color: #FFC107; font-size: 26rpx; }
+.reviews { color: #999; font-size: 24rpx; margin-left: 8rpx; }
+.distance { color: #FF6B35; font-size: 28rpx; font-weight: bold; }

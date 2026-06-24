@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="payment-list">
+    <view class="payment-card" wx:for="{{payments}}" wx:key="id">
+      <view class="payment-info">
+        <text class="payment-method">{{item.paymentMethod}}</text>
+        <text class="payment-txn">{{item.transactionId}}</text>
+        <text class="payment-date">{{item.createdAt}}</text>
+      </view>
+      <view class="payment-amount">
+        <text class="amount">¥{{item.amount}}</text>
+        <text class="payment-status {{item.status}}">{{item.statusText}}</text>
+      </view>
+    </view>
+  </view>
+</view>

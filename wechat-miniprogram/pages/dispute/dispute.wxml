@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="dispute-list" wx:if="{{disputes.length > 0}}">
+    <view class="dispute-card" wx:for="{{disputes}}" wx:key="id">
+      <view class="dispute-header">
+        <text class="dispute-reason">{{item.reason}}</text>
+        <text class="dispute-status {{item.status}}">{{item.statusText}}</text>
+      </view>
+      <text class="dispute-desc" wx:if="{{item.description}}">{{item.description}}</text>
+      <text class="dispute-resolution" wx:if="{{item.resolution}}">处理结果: {{item.resolution}}</text>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    <text>暂无争议记录</text>
+  </view>
+</view>
