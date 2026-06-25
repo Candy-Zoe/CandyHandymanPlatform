@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="header">
+    <text class="title">工匠排行榜</text>
+  </view>
+
+  <view class="ranking-list" wx:if="{{rankings.length > 0}}">
+    <view class="ranking-item" wx:for="{{rankings}}" wx:key="handymanId">
+      <view class="rank-number {{index < 3 ? 'top-' + (index + 1) : ''}}">{{index + 1}}</view>
+      <view class="rank-info">
+        <text class="rank-name">{{item.nickname}}</text>
+        <text class="rank-level">{{item.level}} | 完成{{item.totalCompletedOrders}}单</text>
+      </view>
+      <view class="rank-score">
+        <text class="score">★ {{item.averageRating}}</text>
+        <text class="reviews">{{item.totalReviews}}条评价</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    <text>暂无排行数据</text>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="header"><text class="title">平台公告</text></view>
+  <view class="list" wx:if="{{announcements.length > 0}}">
+    <view class="item" wx:for="{{announcements}}" wx:key="id">
+      <view class="item-header">
+        <text class="item-title">{{item.title}}</text>
+        <text class="item-type">{{item.type}}</text>
+      </view>
+      <text class="item-content">{{item.content}}</text>
+      <text class="item-time">{{item.publishedAt}}</text>
+    </view>
+  </view>
+  <view class="empty" wx:else><text>暂无公告</text></view>
+</view>

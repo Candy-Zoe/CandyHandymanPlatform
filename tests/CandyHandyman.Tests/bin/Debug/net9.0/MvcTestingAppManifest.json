@@ -1,0 +1,6 @@
+{
+  "CandyHandyman.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Api",
+  "CandyHandyman.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Application",
+  "CandyHandyman.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Core",
+  "CandyHandyman.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Infrastructure"
+}

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CandyHandyman.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8aa214d8848959af6613c808394d2466e843893e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ba3d6eb28ab56a8005e7177b017d15faf59c4c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("CandyHandyman.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CandyHandyman.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

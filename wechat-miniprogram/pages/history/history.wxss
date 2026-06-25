@@ -1,0 +1,9 @@
+.container{padding:20rpx;background:#F5F5F5;min-height:100vh}
+.header{display:flex;justify-content:space-between;align-items:center;padding:20rpx 0;margin-bottom:20rpx}
+.title{font-size:36rpx;font-weight:bold;color:#333}
+.clear-btn{font-size:26rpx;color:#FF4D4F}
+.list{display:flex;flex-direction:column;gap:16rpx}
+.item{background:#fff;border-radius:12rpx;padding:24rpx}
+.name{font-size:30rpx;font-weight:bold;color:#333;display:block}
+.time{font-size:22rpx;color:#999;display:block;margin-top:4rpx}
+.empty{display:flex;justify-content:center;align-items:center;height:400rpx;color:#999;font-size:30rpx}

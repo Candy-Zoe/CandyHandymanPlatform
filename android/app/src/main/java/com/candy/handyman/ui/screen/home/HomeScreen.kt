@@ -5,6 +5,8 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Leaderboard
+import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -34,7 +36,15 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltView
     Column(modifier = Modifier.fillMaxSize()) {
         TopAppBar(
             title = { Text("万能工匠", fontWeight = FontWeight.Bold, color = Primary) },
-            colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.surface)
+            colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.surface),
+            actions = {
+                IconButton(onClick = { navController.navigate("ranking") }) {
+                    Icon(Icons.Default.Leaderboard, contentDescription = "排行榜")
+                }
+                IconButton(onClick = { navController.navigate("nearby") }) {
+                    Icon(Icons.Default.MyLocation, contentDescription = "附近")
+                }
+            }
         )
 
         OutlinedTextField(

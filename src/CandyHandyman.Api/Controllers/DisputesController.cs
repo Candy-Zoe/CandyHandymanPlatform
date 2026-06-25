@@ -15,11 +15,13 @@ public class DisputesController : ControllerBase
 {
     private readonly IRepository<Dispute> _disputeRepo;
     private readonly IRepository<Order> _orderRepo;
+    private readonly INotificationService _notificationService;
 
-    public DisputesController(IRepository<Dispute> disputeRepo, IRepository<Order> orderRepo)
+    public DisputesController(IRepository<Dispute> disputeRepo, IRepository<Order> orderRepo, INotificationService notificationService)
     {
         _disputeRepo = disputeRepo;
         _orderRepo = orderRepo;
+        _notificationService = notificationService;
     }
 
     [HttpPost]
@@ -46,6 +48,14 @@ public class DisputesController : ControllerBase
 
         order.Status = OrderStatus.Disputed;
         await _orderRepo.UpdateAsync(order);
+
+        await _notificationService.SendNotificationAsync(
+            respondentId,
+            "新争议",
+            $"订单 {order.OrderNo} 收到争议：{dto.Reason}",
+            NotificationType.Dispute,
+            dispute.Id,
+            "Dispute");
 
         return Ok(new { message = "争议已提交" });
     }

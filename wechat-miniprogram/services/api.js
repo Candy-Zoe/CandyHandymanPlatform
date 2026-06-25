@@ -56,5 +56,71 @@ module.exports = {
 
   // Payments
   createPayment: (data) => api.post('/api/payments/create', data),
-  getPaymentHistory: () => api.get('/api/payments/history')
+  getPaymentHistory: () => api.get('/api/payments/history'),
+
+  // Notifications
+  getNotifications: (params) => api.get('/api/notifications', params),
+  getUnreadCount: () => api.get('/api/notifications/unread-count'),
+  markAsRead: (id) => api.put(`/api/notifications/${id}/read`),
+  markAllAsRead: () => api.put('/api/notifications/read-all'),
+  deleteNotification: (id) => api.delete(`/api/notifications/${id}`),
+  getNotificationSettings: () => api.get('/api/notifications/settings'),
+  updateNotificationSettings: (settings) => api.put('/api/notifications/settings', settings),
+
+  // Schedule
+  getSchedules: (handymanId) => api.get(`/api/schedule/${handymanId}`),
+  updateSchedules: (schedules) => api.put('/api/schedule', schedules),
+  getAvailableSlots: (handymanId, date) => api.get(`/api/schedule/${handymanId}/slots`, { date }),
+  generateSlots: (handymanId, days) => api.post(`/api/schedule/${handymanId}/slots/generate`, null, { days }),
+
+  // Rankings
+  getHandymenRanking: (params) => api.get('/api/rankings/handymen', params),
+
+  // Wallet
+  getWalletBalance: () => api.get('/api/wallet/balance'),
+  rechargeWallet: (data) => api.post('/api/wallet/recharge', data),
+  withdrawWallet: (data) => api.post('/api/wallet/withdraw', data),
+  getWalletTransactions: (params) => api.get('/api/wallet/transactions', params),
+
+  // Payment Enhancement
+  createWechatPayment: (data) => api.post('/api/payments/wechat/create', data),
+  refundPayment: (data) => api.post('/api/payments/refund', data),
+  walletPay: (data) => api.post('/api/payments/wallet/pay', data),
+
+  // Coupons
+  validateCoupon: (data) => api.post('/api/coupons/validate', data),
+  getMyCoupons: () => api.get('/api/coupons/my'),
+
+  // Favorites
+  addFavorite: (data) => api.post('/api/favorites', data),
+  removeFavorite: (data) => api.delete('/api/favorites', data),
+  getMyFavorites: () => api.get('/api/favorites'),
+  checkFavorite: (params) => api.get('/api/favorites/check', params),
+
+  // Browsing History
+  recordHistory: (data) => api.post('/api/browsinghistory', data),
+  getMyHistory: (params) => api.get('/api/browsinghistory', params),
+  clearHistory: () => api.delete('/api/browsinghistory'),
+
+  // Order Templates
+  createTemplate: (data) => api.post('/api/ordertemplates', data),
+  getMyTemplates: () => api.get('/api/ordertemplates'),
+  updateTemplate: (id, data) => api.put(`/api/ordertemplates/${id}`, data),
+  deleteTemplate: (id) => api.delete(`/api/ordertemplates/${id}`),
+
+  // Announcements
+  getAnnouncements: () => api.get('/api/announcements'),
+
+  // Feedback
+  submitFeedback: (data) => api.post('/api/feedbacks', data),
+  getMyFeedbacks: () => api.get('/api/feedbacks/my'),
+
+  // Help
+  getHelpTopics: () => api.get('/api/help'),
+  getHelpTopic: (id) => api.get(`/api/help/${id}`),
+
+  // Admin Stats
+  getDailyStats: (days) => api.get('/api/admin/stats/daily', { days }),
+  getOverviewStats: () => api.get('/api/admin/stats/overview'),
+  getTopServices: (top) => api.get('/api/admin/stats/top-services', { top })
 };

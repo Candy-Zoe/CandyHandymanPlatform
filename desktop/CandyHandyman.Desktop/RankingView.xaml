@@ -1,0 +1,24 @@
+<UserControl x:Class="CandyHandyman.Desktop.RankingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="工匠排行榜" FontSize="24" FontWeight="Bold" Margin="0,0,0,16"/>
+
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False"
+                  HeadersVisibility="Column" GridLinesVisibility="Horizontal" x:Name="RankingGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="排名" Binding="{Binding Rank}" Width="60"/>
+                <DataGridTextColumn Header="工匠名称" Binding="{Binding Nickname}" Width="160"/>
+                <DataGridTextColumn Header="等级" Binding="{Binding Level}" Width="80"/>
+                <DataGridTextColumn Header="评分" Binding="{Binding AverageRating}" Width="80"/>
+                <DataGridTextColumn Header="完成订单" Binding="{Binding TotalCompletedOrders}" Width="80"/>
+                <DataGridTextColumn Header="评价数" Binding="{Binding TotalReviews}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

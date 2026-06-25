@@ -18,7 +18,18 @@
     "pages/certification/certification",
     "pages/insurance/insurance",
     "pages/dispute/dispute",
-    "pages/payment/payment"
+    "pages/payment/payment",
+    "pages/notifications/notifications",
+    "pages/schedule/schedule",
+    "pages/slot-picker/slot-picker",
+    "pages/ranking/ranking",
+    "pages/wallet/wallet",
+    "pages/coupon/coupon",
+    "pages/favorites/favorites",
+    "pages/history/history",
+    "pages/help/help",
+    "pages/feedback/feedback",
+    "pages/announcements/announcements"
   ],
   "window": {
     "navigationBarBackgroundColor": "#FF6B35",

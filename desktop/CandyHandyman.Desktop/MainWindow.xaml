@@ -26,6 +26,12 @@
                 <Button Content="技能认证" Tag="Certifications" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
                 <Button Content="纠纷仲裁" Tag="Disputes" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
                 <Button Content="保险管理" Tag="Insurance" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Separator Background="#33FFFFFF" Margin="0,8"/>
+                <Button Content="优惠券管理" Tag="Coupons" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="工匠排行" Tag="Rankings" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="公告管理" Tag="Announcements" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="反馈管理" Tag="Feedbacks" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="帮助管理" Tag="Help" Click="Nav_Click" Style="{StaticResource NavButtonStyle}"/>
             </StackPanel>
         </Border>
 

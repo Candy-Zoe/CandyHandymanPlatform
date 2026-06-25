@@ -27,6 +27,11 @@ public partial class MainWindow : Window
                 "Certifications" => new CertificationManagementView(),
                 "Disputes" => new DisputeManagementView(),
                 "Insurance" => new InsuranceManagementView(),
+                "Coupons" => new CouponManagementView(),
+                "Rankings" => new RankingView(),
+                "Announcements" => new AnnouncementManagementView(),
+                "Feedbacks" => new FeedbackManagementView(),
+                "Help" => new HelpManagementView(),
                 _ => new DashboardView()
             };
         }

@@ -15,11 +15,13 @@ public class InsuranceController : ControllerBase
 {
     private readonly IRepository<InsurancePolicy> _insuranceRepo;
     private readonly IRepository<Order> _orderRepo;
+    private readonly INotificationService _notificationService;
 
-    public InsuranceController(IRepository<InsurancePolicy> insuranceRepo, IRepository<Order> orderRepo)
+    public InsuranceController(IRepository<InsurancePolicy> insuranceRepo, IRepository<Order> orderRepo, INotificationService notificationService)
     {
         _insuranceRepo = insuranceRepo;
         _orderRepo = orderRepo;
+        _notificationService = notificationService;
     }
 
     [HttpPost]
@@ -53,6 +55,15 @@ public class InsuranceController : ControllerBase
         };
 
         await _insuranceRepo.AddAsync(policy);
+
+        await _notificationService.SendNotificationAsync(
+            userId,
+            "保险购买成功",
+            $"服务保险已购买，保单号：{policy.PolicyNo}",
+            NotificationType.Insurance,
+            policy.Id,
+            "Insurance");
+
         return Ok(new
         {
             policy.Id,

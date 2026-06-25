@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="header"><text class="title">意见反馈</text></view>
+
+  <view class="form">
+    <picker mode="selector" range="{{['Bug', '建议', '投诉', '其他']}}" bindchange="onTypeChange">
+      <view class="picker">类型: {{type}}</view>
+    </picker>
+    <textarea class="textarea" placeholder="请描述您的意见或问题" value="{{content}}" bindinput="onContentInput"/>
+    <input class="input" placeholder="联系方式（选填）" value="{{contactInfo}}" bindinput="onContactInput"/>
+    <button class="submit-btn" bindtap="submit">提交反馈</button>
+  </view>
+
+  <view class="section-title">我的反馈</view>
+  <view class="list" wx:if="{{feedbacks.length > 0}}">
+    <view class="item" wx:for="{{feedbacks}}" wx:key="id">
+      <view class="item-header">
+        <text class="item-type">{{item.type}}</text>
+        <text class="item-status {{item.status}}">{{item.status}}</text>
+      </view>
+      <text class="item-content">{{item.content}}</text>
+      <text class="item-reply" wx:if="{{item.adminReply}}">官方回复: {{item.adminReply}}</text>
+    </view>
+  </view>
+</view>

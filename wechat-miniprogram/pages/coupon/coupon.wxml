@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="header">
+    <text class="title">我的优惠券</text>
+  </view>
+
+  <view class="coupon-list" wx:if="{{coupons.length > 0}}">
+    <view class="coupon-item {{item.isUsed ? 'used' : ''}}" wx:for="{{coupons}}" wx:key="id">
+      <view class="coupon-left">
+        <text class="coupon-value" wx:if="{{item.type === 'Percentage'}}">{{item.discountValue}}%</text>
+        <text class="coupon-value" wx:else>¥{{item.discountValue}}</text>
+        <text class="coupon-condition">满{{item.minAmount}}元可用</text>
+      </view>
+      <view class="coupon-right">
+        <text class="coupon-name">{{item.name}}</text>
+        <text class="coupon-code">码: {{item.code}}</text>
+        <text class="coupon-expire" wx:if="{{item.expiresAt}}">有效期至 {{item.expiresAt}}</text>
+        <text class="coupon-used" wx:if="{{item.isUsed}}">已使用</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    <text>暂无优惠券</text>
+  </view>
+</view>

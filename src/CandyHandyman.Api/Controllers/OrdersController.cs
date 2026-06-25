@@ -16,15 +16,18 @@ public class OrdersController : ControllerBase
     private readonly IRepository<Order> _orderRepo;
     private readonly IRepository<Service> _serviceRepo;
     private readonly IRepository<User> _userRepo;
+    private readonly INotificationService _notificationService;
 
     public OrdersController(
         IRepository<Order> orderRepo,
         IRepository<Service> serviceRepo,
-        IRepository<User> userRepo)
+        IRepository<User> userRepo,
+        INotificationService notificationService)
     {
         _orderRepo = orderRepo;
         _serviceRepo = serviceRepo;
         _userRepo = userRepo;
+        _notificationService = notificationService;
     }
 
     [HttpPost]
@@ -53,6 +56,15 @@ public class OrdersController : ControllerBase
         };
 
         await _orderRepo.AddAsync(order);
+
+        await _notificationService.SendNotificationAsync(
+            providerUser.Id,
+            "新订单",
+            $"您有一个新订单：{service.Title}",
+            NotificationType.OrderUpdate,
+            order.Id,
+            "Order");
+
         return Ok(MapToDto(order, service, providerUser, await _userRepo.GetByIdAsync(userId)));
     }
 
@@ -105,6 +117,15 @@ public class OrdersController : ControllerBase
         order.Status = OrderStatus.Accepted;
         order.AcceptedAt = DateTime.UtcNow;
         await _orderRepo.UpdateAsync(order);
+
+        await _notificationService.SendNotificationAsync(
+            order.CustomerId,
+            "订单已接单",
+            "工匠已接受您的订单，请等待服务",
+            NotificationType.OrderUpdate,
+            order.Id,
+            "Order");
+
         return Ok();
     }
 
@@ -117,6 +138,15 @@ public class OrdersController : ControllerBase
 
         order.Status = OrderStatus.InProgress;
         await _orderRepo.UpdateAsync(order);
+
+        await _notificationService.SendNotificationAsync(
+            order.CustomerId,
+            "服务开始",
+            "工匠已开始为您服务",
+            NotificationType.OrderUpdate,
+            order.Id,
+            "Order");
+
         return Ok();
     }
 
@@ -130,6 +160,15 @@ public class OrdersController : ControllerBase
         order.Status = OrderStatus.Completed;
         order.CompletedAt = DateTime.UtcNow;
         await _orderRepo.UpdateAsync(order);
+
+        await _notificationService.SendNotificationAsync(
+            order.CustomerId,
+            "订单已完成",
+            "服务已完成，请对工匠进行评价",
+            NotificationType.OrderUpdate,
+            order.Id,
+            "Order");
+
         return Ok();
     }
 
@@ -141,8 +180,20 @@ public class OrdersController : ControllerBase
         if (order.Status == OrderStatus.Completed || order.Status == OrderStatus.Cancelled)
             return BadRequest(new { message = "订单状态不允许" });
 
+        var cancelledBy = GetUserId();
+        var notifyTo = cancelledBy == order.CustomerId ? order.ProviderId : order.CustomerId;
+
         order.Status = OrderStatus.Cancelled;
         await _orderRepo.UpdateAsync(order);
+
+        await _notificationService.SendNotificationAsync(
+            notifyTo,
+            "订单已取消",
+            "订单已被取消",
+            NotificationType.OrderUpdate,
+            order.Id,
+            "Order");
+
         return Ok();
     }
 

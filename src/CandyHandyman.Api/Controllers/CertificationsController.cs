@@ -14,11 +14,13 @@ public class CertificationsController : ControllerBase
 {
     private readonly IRepository<CraftsmanCertification> _certRepo;
     private readonly IRepository<HandymanProfile> _handymanRepo;
+    private readonly INotificationService _notificationService;
 
-    public CertificationsController(IRepository<CraftsmanCertification> certRepo, IRepository<HandymanProfile> handymanRepo)
+    public CertificationsController(IRepository<CraftsmanCertification> certRepo, IRepository<HandymanProfile> handymanRepo, INotificationService notificationService)
     {
         _certRepo = certRepo;
         _handymanRepo = handymanRepo;
+        _notificationService = notificationService;
     }
 
     [HttpPost]
@@ -32,6 +34,15 @@ public class CertificationsController : ControllerBase
         dto.HandymanProfileId = profile.Id;
         dto.Status = VerificationStatus.Pending;
         await _certRepo.AddAsync(dto);
+
+        await _notificationService.SendNotificationAsync(
+            userId,
+            "资质认证已提交",
+            $"您的资质认证 [{dto.CertificateName}] 已提交，等待审核",
+            NotificationType.Certification,
+            dto.Id,
+            "Certification");
+
         return Ok(new { message = "提交成功，等待审核" });
     }
 

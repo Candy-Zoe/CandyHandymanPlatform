@@ -4,6 +4,17 @@
     <text class="search-placeholder">搜索服务...</text>
   </view>
 
+  <view class="quick-entry">
+    <view class="entry-item" bindtap="goRanking">
+      <text class="entry-icon">🏆</text>
+      <text class="entry-text">工匠排行</text>
+    </view>
+    <view class="entry-item" bindtap="goNearby">
+      <text class="entry-icon">📍</text>
+      <text class="entry-text">附近工匠</text>
+    </view>
+  </view>
+
   <view class="category-grid">
     <view class="category-item" wx:for="{{categories}}" wx:key="id" bindtap="goCategory" data-id="{{item.id}}">
       <text class="category-icon">{{item.icon || '🔧'}}</text>

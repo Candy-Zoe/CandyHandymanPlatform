@@ -14,11 +14,13 @@ public class VerificationController : ControllerBase
 {
     private readonly IRepository<IdentityVerification> _verificationRepo;
     private readonly IRepository<User> _userRepo;
+    private readonly INotificationService _notificationService;
 
-    public VerificationController(IRepository<IdentityVerification> verificationRepo, IRepository<User> userRepo)
+    public VerificationController(IRepository<IdentityVerification> verificationRepo, IRepository<User> userRepo, INotificationService notificationService)
     {
         _verificationRepo = verificationRepo;
         _userRepo = userRepo;
+        _notificationService = notificationService;
     }
 
     [HttpPost]
@@ -33,6 +35,15 @@ public class VerificationController : ControllerBase
         dto.UserId = userId;
         dto.Status = VerificationStatus.Pending;
         await _verificationRepo.AddAsync(dto);
+
+        await _notificationService.SendNotificationAsync(
+            userId,
+            "实名认证已提交",
+            "您的实名认证已提交，等待审核",
+            NotificationType.Certification,
+            dto.Id,
+            "Verification");
+
         return Ok(new { message = "提交成功，等待审核" });
     }
 

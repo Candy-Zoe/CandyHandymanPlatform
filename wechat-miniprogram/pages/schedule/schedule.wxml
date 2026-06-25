@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="header">
+    <text class="title">排班管理</text>
+  </view>
+
+  <view class="schedule-list" wx:if="{{schedules.length > 0}}">
+    <view class="schedule-item" wx:for="{{schedules}}" wx:key="id">
+      <text class="day-name">{{dayNames[item.dayOfWeek]}}</text>
+      <text class="time-range" wx:if="{{item.isAvailable}}">{{item.startTime}} - {{item.endTime}}</text>
+      <text class="rest" wx:else>休息</text>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    <text>暂无排班设置</text>
+  </view>
+
+  <button class="generate-btn" bindtap="generateSlots">生成未来14天预约时段</button>
+</view>

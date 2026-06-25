@@ -34,5 +34,13 @@ Page({
   goServiceDetail(e) {
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({ url: `/pages/service-detail/service-detail?id=${id}` });
+  },
+
+  goRanking() {
+    wx.navigateTo({ url: '/pages/ranking/ranking' });
+  },
+
+  goNearby() {
+    wx.navigateTo({ url: '/pages/nearby/nearby' });
   }
 })

@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="header">
+    <text class="title">选择预约时段</text>
+  </view>
+
+  <scroll-view scroll-x class="date-list">
+    <view
+      class="date-item {{selectedDate === item.date ? 'selected' : ''}}"
+      wx:for="{{dates}}"
+      wx:key="date"
+      bindtap="selectDate"
+      data-date="{{item.date}}"
+    >
+      <text class="date-month">{{item.month}}/{{item.day}}</text>
+      <text class="date-weekday">周{{item.dayName}}</text>
+    </view>
+  </scroll-view>
+
+  <view class="slot-list" wx:if="{{slots.length > 0}}">
+    <view
+      class="slot-item"
+      wx:for="{{slots}}"
+      wx:key="id"
+      bindtap="selectSlot"
+      data-slot="{{item}}"
+    >
+      <view class="slot-time">
+        <text class="time-text">{{item.startTime}} - {{item.endTime}}</text>
+      </view>
+      <button class="select-btn" size="mini">选择</button>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    <text>该日期暂无可用时段</text>
+  </view>
+</view>

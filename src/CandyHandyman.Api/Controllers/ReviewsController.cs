@@ -2,6 +2,7 @@ using System.Security.Claims;
 using CandyHandyman.Application.DTOs;
 using CandyHandyman.Application.Interfaces;
 using CandyHandyman.Core.Entities;
+using CandyHandyman.Core.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,15 +16,24 @@ public class ReviewsController : ControllerBase
     private readonly IRepository<Review> _reviewRepo;
     private readonly IRepository<Order> _orderRepo;
     private readonly IRepository<User> _userRepo;
+    private readonly INotificationService _notificationService;
+    private readonly ILevelService _levelService;
+    private readonly IRepository<HandymanProfile> _handymanRepo;
 
     public ReviewsController(
         IRepository<Review> reviewRepo,
         IRepository<Order> orderRepo,
-        IRepository<User> userRepo)
+        IRepository<User> userRepo,
+        INotificationService notificationService,
+        ILevelService levelService,
+        IRepository<HandymanProfile> handymanRepo)
     {
         _reviewRepo = reviewRepo;
         _orderRepo = orderRepo;
         _userRepo = userRepo;
+        _notificationService = notificationService;
+        _levelService = levelService;
+        _handymanRepo = handymanRepo;
     }
 
     [HttpPost]
@@ -49,6 +59,25 @@ public class ReviewsController : ControllerBase
         };
 
         await _reviewRepo.AddAsync(review);
+
+        var profile = (await _handymanRepo.GetAllAsync()).FirstOrDefault(h => h.UserId == order.ProviderId);
+        if (profile != null)
+        {
+            var allReviews = (await _reviewRepo.GetAllAsync()).Where(r => r.ProviderId == order.ProviderId).ToList();
+            profile.TotalReviews = allReviews.Count;
+            profile.AverageRating = allReviews.Any() ? (decimal)allReviews.Average(r => r.Rating) : 0;
+            await _handymanRepo.UpdateAsync(profile);
+            await _levelService.EvaluateAndUpgradeAsync(profile.Id);
+        }
+
+        await _notificationService.SendNotificationAsync(
+            order.ProviderId,
+            "收到新评价",
+            $"您收到一个{dto.Rating}星评价",
+            NotificationType.Review,
+            review.Id,
+            "Review");
+
         return Ok(new ReviewDto
         {
             Id = review.Id,

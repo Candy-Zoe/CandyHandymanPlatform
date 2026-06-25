@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="balance-card">
+    <text class="balance-label">账户余额</text>
+    <text class="balance-amount">¥{{balance}}</text>
+    <button class="recharge-btn" bindtap="showRecharge">充值</button>
+  </view>
+
+  <view class="section-header">
+    <text class="section-title">交易记录</text>
+  </view>
+
+  <view class="transaction-list" wx:if="{{transactions.length > 0}}">
+    <view class="transaction-item" wx:for="{{transactions}}" wx:key="id">
+      <view class="transaction-info">
+        <text class="transaction-desc">{{item.description || item.type}}</text>
+        <text class="transaction-time">{{item.createdAt}}</text>
+      </view>
+      <text class="transaction-amount {{item.amount >= 0 ? 'income' : 'expense'}}">
+        {{item.amount >= 0 ? '+' : ''}}{{item.amount}}
+      </text>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    <text>暂无交易记录</text>
+  </view>
+
+  <view class="load-more" wx:if="{{hasMore}}" bindtap="loadMore">
+    <text wx:if="{{loading}}">加载中...</text>
+    <text wx:else>加载更多</text>
+  </view>
+</view>

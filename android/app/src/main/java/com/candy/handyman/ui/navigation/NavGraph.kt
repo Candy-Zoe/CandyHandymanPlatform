@@ -29,6 +29,12 @@ import com.candy.handyman.ui.screen.profile.ProfileScreen
 import com.candy.handyman.ui.screen.publish.PublishServiceScreen
 import com.candy.handyman.ui.screen.service.ServiceDetailScreen
 import com.candy.handyman.ui.screen.verification.VerificationScreen
+import com.candy.handyman.ui.screen.notification.NotificationListScreen
+import com.candy.handyman.ui.screen.schedule.ScheduleManageScreen
+import com.candy.handyman.ui.screen.schedule.SlotPickerScreen
+import com.candy.handyman.ui.screen.ranking.RankingScreen
+import com.candy.handyman.ui.screen.wallet.WalletScreen
+import com.candy.handyman.ui.screen.coupon.CouponListScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -119,6 +125,26 @@ fun NavGraph() {
             }
             composable("profile") { ProfileScreen(navController) }
             composable("publish") { PublishServiceScreen(navController) }
+            composable("notifications") { NotificationListScreen(navController) }
+            composable("ranking") { RankingScreen(navController) }
+            composable(
+                "schedule/{handymanId}",
+                arguments = listOf(navArgument("handymanId") { type = NavType.StringType })
+            ) { backStackEntry ->
+                ScheduleManageScreen(navController, backStackEntry.arguments?.getString("handymanId") ?: "")
+            }
+            composable(
+                "slotPicker/{handymanId}",
+                arguments = listOf(navArgument("handymanId") { type = NavType.StringType })
+            ) { backStackEntry ->
+                SlotPickerScreen(
+                    navController,
+                    backStackEntry.arguments?.getString("handymanId") ?: "",
+                    onSlotSelected = { }
+                )
+            }
+            composable("wallet") { WalletScreen(navController) }
+            composable("coupons") { CouponListScreen(navController) }
         }
     }
 }

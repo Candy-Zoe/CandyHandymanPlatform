@@ -1,3 +1,5 @@
+using CandyHandyman.Core.Enums;
+
 namespace CandyHandyman.Core.Entities;
 
 public class HandymanProfile : BaseEntity
@@ -7,6 +9,8 @@ public class HandymanProfile : BaseEntity
     public double ServiceRadius { get; set; } = 10;
     public decimal AverageRating { get; set; }
     public int TotalReviews { get; set; }
+    public int TotalCompletedOrders { get; set; }
+    public CraftsmanLevel Level { get; set; } = CraftsmanLevel.Junior;
     public bool IsVerified { get; set; }
     public bool IsAvailable { get; set; } = true;
 

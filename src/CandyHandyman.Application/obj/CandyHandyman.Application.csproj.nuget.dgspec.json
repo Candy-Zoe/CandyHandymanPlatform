@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Application\\CandyHandyman.Application.csproj": {}
+    "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Application\\CandyHandyman.Application.csproj": {}
   },
   "projects": {
-    "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Application\\CandyHandyman.Application.csproj": {
+    "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Application\\CandyHandyman.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Application\\CandyHandyman.Application.csproj",
+        "projectUniqueName": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Application\\CandyHandyman.Application.csproj",
         "projectName": "CandyHandyman.Application",
-        "projectPath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Application\\CandyHandyman.Application.csproj",
+        "projectPath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Application\\CandyHandyman.Application.csproj",
         "packagesPath": "C:\\Users\\Candy.CHINAMI-6LP8UH3\\.nuget\\packages\\",
-        "outputPath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Application\\obj\\",
+        "outputPath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages",
@@ -36,8 +36,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Core\\CandyHandyman.Core.csproj": {
-                "projectPath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Core\\CandyHandyman.Core.csproj"
+              "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Core\\CandyHandyman.Core.csproj": {
+                "projectPath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Core\\CandyHandyman.Core.csproj"
               }
             }
           }
@@ -77,14 +77,14 @@
         }
       }
     },
-    "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Core\\CandyHandyman.Core.csproj": {
+    "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Core\\CandyHandyman.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Core\\CandyHandyman.Core.csproj",
+        "projectUniqueName": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Core\\CandyHandyman.Core.csproj",
         "projectName": "CandyHandyman.Core",
-        "projectPath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Core\\CandyHandyman.Core.csproj",
+        "projectPath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Core\\CandyHandyman.Core.csproj",
         "packagesPath": "C:\\Users\\Candy.CHINAMI-6LP8UH3\\.nuget\\packages\\",
-        "outputPath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform-\\src\\CandyHandyman.Core\\obj\\",
+        "outputPath": "E:\\Test\\web\\GT2\\CandyHandymanPlatform\\src\\CandyHandyman.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages",

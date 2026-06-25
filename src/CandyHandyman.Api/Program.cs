@@ -1,5 +1,6 @@
 using System.Text;
 using CandyHandyman.Api.Hubs;
+using CandyHandyman.Api.Services;
 using CandyHandyman.Application.Interfaces;
 using CandyHandyman.Infrastructure.Data;
 using CandyHandyman.Infrastructure.Repositories;
@@ -16,6 +17,31 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddSingleton<IFileService, LocalFileService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<INotificationHub, NotificationHubService>();
+builder.Services.AddScoped<IScheduleService, ScheduleService>();
+builder.Services.AddScoped<IRankingService, RankingService>();
+builder.Services.AddScoped<ILevelService, LevelService>();
+builder.Services.AddScoped<IWechatPayService, WechatPayService>();
+builder.Services.AddScoped<ICouponService, CouponService>();
+builder.Services.AddScoped<IWalletService, WalletService>();
+builder.Services.AddScoped<IFavoriteService, FavoriteService>();
+builder.Services.AddScoped<IBrowsingHistoryService, BrowsingHistoryService>();
+builder.Services.AddScoped<IOrderTemplateService, OrderTemplateService>();
+builder.Services.AddScoped<IAnnouncementService, AnnouncementService>();
+builder.Services.AddScoped<IFeedbackService, FeedbackService>();
+builder.Services.AddScoped<IHelpService, HelpService>();
+builder.Services.AddSingleton<ICacheService, CacheService>();
+builder.Services.AddScoped<ISecurityService, SecurityService>();
+builder.Services.AddSingleton<IRateLimiter, InMemoryRateLimiter>();
+builder.Services.AddScoped<IAuditService, AuditService>();
+builder.Services.AddScoped<IPasswordService, PasswordService>();
+builder.Services.AddHttpClient();
+builder.Services.AddMemoryCache();
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+});
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -69,12 +95,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseResponseCompression();
 app.UseStaticFiles();
 app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.MapHub<ChatHub>("/hubs/chat");
+app.MapHub<NotificationHub>("/hubs/notification");
 
 using (var scope = app.Services.CreateScope())
 {
@@ -84,3 +112,5 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.Run();
+
+public partial class Program { }

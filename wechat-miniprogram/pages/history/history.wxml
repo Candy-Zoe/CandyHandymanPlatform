@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="header">
+    <text class="title">浏览历史</text>
+    <text class="clear-btn" bindtap="clearHistory">清空</text>
+  </view>
+  <view class="list" wx:if="{{history.length > 0}}">
+    <view class="item" wx:for="{{history}}" wx:key="id" bindtap="goDetail" data-service-id="{{item.serviceId}}" data-handyman-id="{{item.handymanProfileId}}">
+      <view class="info">
+        <text class="name">{{item.serviceTitle || item.handymanName || '未知'}}</text>
+        <text class="time">{{item.viewedAt}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else><text>暂无浏览记录</text></view>
+</view>

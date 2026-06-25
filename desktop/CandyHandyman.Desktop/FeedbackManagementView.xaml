@@ -1,0 +1,24 @@
+<UserControl x:Class="CandyHandyman.Desktop.FeedbackManagementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="反馈管理" FontSize="24" FontWeight="Bold" Margin="0,0,0,16"/>
+
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False"
+                  HeadersVisibility="Column" GridLinesVisibility="Horizontal">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="类型" Binding="{Binding Type}" Width="80"/>
+                <DataGridTextColumn Header="内容" Binding="{Binding Content}" Width="300"/>
+                <DataGridTextColumn Header="联系方式" Binding="{Binding ContactInfo}" Width="120"/>
+                <DataGridTextColumn Header="状态" Binding="{Binding Status}" Width="80"/>
+                <DataGridTextColumn Header="官方回复" Binding="{Binding AdminReply}" Width="200"/>
+                <DataGridTextColumn Header="提交时间" Binding="{Binding CreatedAt}" Width="160"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

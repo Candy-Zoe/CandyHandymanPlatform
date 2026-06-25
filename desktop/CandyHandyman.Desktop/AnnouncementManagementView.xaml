@@ -1,0 +1,23 @@
+<UserControl x:Class="CandyHandyman.Desktop.AnnouncementManagementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="公告管理" FontSize="24" FontWeight="Bold" Margin="0,0,0,16"/>
+
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False"
+                  HeadersVisibility="Column" GridLinesVisibility="Horizontal">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="标题" Binding="{Binding Title}" Width="200"/>
+                <DataGridTextColumn Header="类型" Binding="{Binding Type}" Width="80"/>
+                <DataGridTextColumn Header="已发布" Binding="{Binding IsPublished}" Width="60"/>
+                <DataGridTextColumn Header="发布时间" Binding="{Binding PublishedAt}" Width="160"/>
+                <DataGridTextColumn Header="过期时间" Binding="{Binding ExpiresAt}" Width="160"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
