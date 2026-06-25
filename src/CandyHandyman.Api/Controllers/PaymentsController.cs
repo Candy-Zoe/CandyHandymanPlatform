@@ -149,10 +149,12 @@ public class PaymentsController : ControllerBase
         var orderNo = payload?.GetValueOrDefault("out_trade_no")?.ToString();
         if (string.IsNullOrEmpty(orderNo)) return Ok();
 
-        var order = (await _orderRepo.GetAllAsync()).FirstOrDefault(o => o.OrderNo == orderNo);
+        var order = (await _orderRepo.GetAllAsync())
+            .FirstOrDefault(o => o.OrderNo == orderNo);
         if (order == null) return Ok();
 
-        var existingPayment = (await _paymentRepo.GetAllAsync()).FirstOrDefault(p => p.OrderId == order.Id);
+        var existingPayment = (await _paymentRepo.GetAllAsync())
+            .FirstOrDefault(p => p.OrderId == order.Id);
         if (existingPayment != null) return Ok();
 
         var payment = new Payment
@@ -162,7 +164,7 @@ public class PaymentsController : ControllerBase
             Amount = order.TotalAmount,
             PaymentMethod = "WechatPay",
             Status = PaymentStatus.Paid,
-            TransactionId = $"TXN{DateTime.UtcNow:yyyyMMddHHmmfff}"
+            TransactionId = $"TXN{DateTime.UtcNow:yyyyMMddHHmmssfff}{Random.Shared.Next(1000, 9999)}"
         };
 
         await _paymentRepo.AddAsync(payment);

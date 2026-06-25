@@ -4,6 +4,7 @@ using CandyHandyman.Core.Enums;
 using CandyHandyman.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace CandyHandyman.Infrastructure.Services;
 
@@ -13,17 +14,20 @@ public class NotificationService : INotificationService
     private readonly IConfiguration _configuration;
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly INotificationHub _notificationHub;
+    private readonly ILogger<NotificationService> _logger;
 
     public NotificationService(
         AppDbContext context,
         IConfiguration configuration,
         IHttpClientFactory httpClientFactory,
-        INotificationHub notificationHub)
+        INotificationHub notificationHub,
+        ILogger<NotificationService> logger)
     {
         _context = context;
         _configuration = configuration;
         _httpClientFactory = httpClientFactory;
         _notificationHub = notificationHub;
+        _logger = logger;
     }
 
     public async Task SendNotificationAsync(Guid userId, string title, string content, NotificationType type, Guid? relatedId = null, string? relatedType = null)
@@ -71,7 +75,10 @@ public class NotificationService : INotificationService
                 }
             }
         }
-        catch { }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Failed to send push notification to user {UserId}", userId);
+        }
     }
 
     public async Task SendBatchNotificationAsync(List<Guid> userIds, string title, string content, NotificationType type, Guid? relatedId = null, string? relatedType = null)
@@ -183,8 +190,9 @@ public class NotificationService : INotificationService
             var tokenResult = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(responseJson);
             return tokenResult?["access_token"]?.ToString();
         }
-        catch
+        catch (Exception ex)
         {
+            _logger.LogError(ex, "Failed to get Firebase access token");
             return null;
         }
     }
@@ -198,8 +206,9 @@ public class NotificationService : INotificationService
             var result = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(response);
             return result?["access_token"]?.ToString();
         }
-        catch
+        catch (Exception ex)
         {
+            _logger.LogError(ex, "Failed to get WeChat access token");
             return null;
         }
     }

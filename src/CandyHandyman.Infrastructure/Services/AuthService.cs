@@ -25,6 +25,15 @@ public class AuthService : IAuthService
 
     public async Task<AuthResponseDto> RegisterAsync(RegisterDto dto)
     {
+        if (string.IsNullOrWhiteSpace(dto.Phone) || !System.Text.RegularExpressions.Regex.IsMatch(dto.Phone, @"^1[3-9]\d{9}$"))
+            throw new Exception("手机号格式不正确");
+
+        if (string.IsNullOrWhiteSpace(dto.Nickname) || dto.Nickname.Length < 2 || dto.Nickname.Length > 20)
+            throw new Exception("昵称长度需在2-20个字符之间");
+
+        if (string.IsNullOrWhiteSpace(dto.Password) || dto.Password.Length < 8)
+            throw new Exception("密码长度至少8位");
+
         if (await _context.Users.AnyAsync(u => u.Phone == dto.Phone))
             throw new Exception("该手机号已注册");
 
@@ -121,7 +130,7 @@ public class AuthService : IAuthService
 
     private static string HashPassword(string password)
     {
-        using var hmac = new HMACSHA256();
+        using var hmac = new HMACSHA512();
         var salt = hmac.Key;
         var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
         return Convert.ToBase64String(salt) + "." + Convert.ToBase64String(hash);
@@ -133,7 +142,7 @@ public class AuthService : IAuthService
         if (parts.Length != 2) return false;
         var salt = Convert.FromBase64String(parts[0]);
         var storedHash = Convert.FromBase64String(parts[1]);
-        using var hmac = new HMACSHA256(salt);
+        using var hmac = new HMACSHA512(salt);
         var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
         return storedHash.SequenceEqual(computedHash);
     }

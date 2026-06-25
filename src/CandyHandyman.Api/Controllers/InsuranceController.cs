@@ -30,8 +30,10 @@ public class InsuranceController : ControllerBase
         var userId = GetUserId();
         var order = await _orderRepo.GetByIdAsync(dto.OrderId);
         if (order == null) return NotFound();
+        if (order.CustomerId != userId) return Forbid();
 
-        var insuranceType = Enum.Parse<InsuranceType>(dto.Type);
+        if (!Enum.TryParse<InsuranceType>(dto.Type, true, out var insuranceType))
+            return BadRequest(new { message = "无效的保险类型" });
         var premium = insuranceType switch
         {
             InsuranceType.PersonalInjury => 5.0m,

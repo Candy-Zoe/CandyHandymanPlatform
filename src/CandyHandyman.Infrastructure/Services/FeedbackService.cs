@@ -13,13 +13,16 @@ public class FeedbackService : IFeedbackService
 
     public async Task<FeedbackDto> SubmitAsync(Guid userId, SubmitFeedbackDto dto)
     {
+        if (!Enum.TryParse<FeedbackType>(dto.Type, true, out var feedbackType))
+            feedbackType = FeedbackType.Other;
+
         var feedback = new Feedback
         {
             Id = Guid.NewGuid(),
             UserId = userId,
             Content = dto.Content,
             ContactInfo = dto.ContactInfo,
-            Type = Enum.Parse<FeedbackType>(dto.Type, true),
+            Type = feedbackType,
             Status = FeedbackStatus.Pending
         };
         _context.Feedbacks.Add(feedback);
@@ -60,7 +63,8 @@ public class FeedbackService : IFeedbackService
     {
         var f = await _context.Feedbacks.FindAsync(feedbackId);
         if (f == null) return;
-        f.Status = Enum.Parse<FeedbackStatus>(status, true);
+        if (Enum.TryParse<FeedbackStatus>(status, true, out var newStatus))
+            f.Status = newStatus;
         await _context.SaveChangesAsync();
     }
 

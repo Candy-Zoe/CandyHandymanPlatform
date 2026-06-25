@@ -13,12 +13,15 @@ public class AnnouncementService : IAnnouncementService
 
     public async Task<AnnouncementDto> CreateAsync(CreateAnnouncementDto dto)
     {
+        if (!Enum.TryParse<AnnouncementType>(dto.Type, true, out var announcementType))
+            announcementType = AnnouncementType.Notice;
+
         var announcement = new Announcement
         {
             Id = Guid.NewGuid(),
             Title = dto.Title,
             Content = dto.Content,
-            Type = Enum.Parse<AnnouncementType>(dto.Type, true),
+            Type = announcementType,
             ExpiresAt = dto.ExpiresAt
         };
         _context.Announcements.Add(announcement);
@@ -49,7 +52,8 @@ public class AnnouncementService : IAnnouncementService
         if (a == null) return;
         a.Title = dto.Title;
         a.Content = dto.Content;
-        a.Type = Enum.Parse<AnnouncementType>(dto.Type, true);
+        if (Enum.TryParse<AnnouncementType>(dto.Type, true, out var type))
+            a.Type = type;
         a.ExpiresAt = dto.ExpiresAt;
         await _context.SaveChangesAsync();
     }

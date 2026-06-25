@@ -68,7 +68,7 @@ public class ServicesController : ControllerBase
         if (service == null) return NotFound();
 
         service.ViewCount++;
-        await _serviceRepo.UpdateAsync(service);
+        await _serviceRepo.SaveChangesAsync();
 
         var handymen = (await _handymanRepo.GetAllAsync()).ToDictionary(h => h.Id);
         var categories = (await _categoryRepo.GetAllAsync()).ToDictionary(c => c.Id);

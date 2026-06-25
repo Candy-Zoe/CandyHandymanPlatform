@@ -42,7 +42,7 @@ public class OrdersController : ControllerBase
         var order = new Order
         {
             Id = Guid.NewGuid(),
-            OrderNo = $"ORD{DateTime.UtcNow:yyyyMMddHHmmss}{new Random().Next(1000, 9999)}",
+            OrderNo = $"ORD{DateTime.UtcNow:yyyyMMddHHmmss}{Guid.NewGuid().ToString("N")[..8]}",
             ServiceId = dto.ServiceId,
             CustomerId = userId,
             ProviderId = providerUser!.Id,

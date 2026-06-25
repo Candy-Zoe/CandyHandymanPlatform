@@ -46,7 +46,7 @@ public class AdminController : ControllerBase
     }
 
     [HttpGet("users")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
     {
         var users = (await _userRepo.GetAllAsync())
@@ -68,7 +68,7 @@ public class AdminController : ControllerBase
     }
 
     [HttpGet("orders")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetOrders([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
     {
         var orders = (await _orderRepo.GetAllAsync())
